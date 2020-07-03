@@ -32,6 +32,9 @@ public class JoinEvent implements Listener {
 
         player.getInventory().clear();
 
+        player.setSaturation(20);
+        player.setFoodLevel(20);
+
         player.getInventory().setHeldItemSlot(4);
 
         // Set Website Item (Slot 0)
