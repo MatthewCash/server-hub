@@ -9,7 +9,7 @@ import net.citizensnpcs.api.event.NPCLeftClickEvent;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
 
-public class NPCInteract implements Listener {
+public class NPCInteractEvent implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onNPCLeftClick(NPCLeftClickEvent event) {
@@ -27,7 +27,7 @@ public class NPCInteract implements Listener {
         NPCClick(player, npc.getId());
     }
 
-    private void NPCClick(Player player, Integer id) {
+    private static void NPCClick(Player player, Integer id) {
         switch (id) {
             case 0: {
                 BungeeMessenger.sendPlayer(player, "survival");

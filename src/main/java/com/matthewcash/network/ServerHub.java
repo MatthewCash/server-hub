@@ -20,7 +20,7 @@ public class ServerHub extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new ServerMenu(), this);
         Bukkit.getPluginManager().registerEvents(new CancelEvents(), this);
         Bukkit.getPluginManager().registerEvents(new JoinLeaveEvents(), this);
-        Bukkit.getPluginManager().registerEvents(new NPCInteract(), this);
+        Bukkit.getPluginManager().registerEvents(new NPCInteractEvent(), this);
 
         Bukkit.getPluginCommand("website").setExecutor(new HubCommands());
         Bukkit.getPluginCommand("menu").setExecutor(new HubCommands());
