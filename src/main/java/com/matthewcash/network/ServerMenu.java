@@ -40,9 +40,7 @@ public class ServerMenu implements Listener {
 
         itemMeta.setLore(itemLore);
 
-        if (glowing) {
-            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        }
+        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         itemStack.setItemMeta(itemMeta);
 
