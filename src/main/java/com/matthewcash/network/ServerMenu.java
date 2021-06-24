@@ -24,6 +24,7 @@ public class ServerMenu implements Listener {
     public static void showMenu(Player player) {
         Inventory inventory = Bukkit.createInventory(null, 27, color("&c&lServer Menu"));
 
+        inventory.setItem(11, createInventoryItem(Material.SAPLING, "&c&lSkyFactory", "&eClick to Join!", true));
         inventory.setItem(13, createInventoryItem(Material.IRON_SWORD, "&a&lSurvival", "&eClick to Join!", true));
         inventory.setItem(15, createInventoryItem(Material.DIAMOND_PICKAXE, "&b&lCreative", "&eClick to Join!", true));
 
@@ -63,6 +64,10 @@ public class ServerMenu implements Listener {
             return;
 
         switch (event.getRawSlot()) {
+            case 11: {
+                BungeeMessenger.sendPlayer(player, "skyfactory");
+                break;
+            }
             case 13: {
                 BungeeMessenger.sendPlayer(player, "survival");
                 break;
