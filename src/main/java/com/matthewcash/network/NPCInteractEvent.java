@@ -37,6 +37,10 @@ public class NPCInteractEvent implements Listener {
                 BungeeMessenger.sendPlayer(player, "creative");
                 break;
             }
+            case 2: {
+                BungeeMessenger.sendPlayer(player, "skyfactory");
+                break;
+            }
         }
     }
 }
