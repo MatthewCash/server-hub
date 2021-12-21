@@ -1,4 +1,4 @@
-package com.matthewcash.network;
+package com.matthewcash.network.Events;
 
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;

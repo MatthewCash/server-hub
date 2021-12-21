@@ -1,4 +1,6 @@
-package com.matthewcash.network;
+package com.matthewcash.network.Events;
+
+import com.matthewcash.network.BungeeMessenger;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

@@ -1,4 +1,4 @@
-package com.matthewcash.network;
+package com.matthewcash.network.Events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

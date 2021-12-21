@@ -1,4 +1,7 @@
-package com.matthewcash.network;
+package com.matthewcash.network.Events;
+
+import com.matthewcash.network.ServerMenu;
+import com.matthewcash.network.WebsiteMessage;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
