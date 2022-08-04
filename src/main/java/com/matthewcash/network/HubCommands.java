@@ -27,5 +27,4 @@ public class HubCommands implements CommandExecutor {
 
         return true;
     }
-
 }
