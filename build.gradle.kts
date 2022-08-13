@@ -23,4 +23,4 @@ dependencies {
 group = "com.matthewcash.network"
 version = "1.0.0"
 description = "Matthew_Cash Server Hub"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_1_8
