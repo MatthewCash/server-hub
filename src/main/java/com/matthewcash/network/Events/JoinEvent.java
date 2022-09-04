@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class JoinEvent implements Listener {
-    final Location spawn = new Location(Bukkit.getWorld("hub"), -1618.5, 51, 1215.5, 180, 0);
+    public final static Location spawn = new Location(Bukkit.getWorld("hub"), -1618.5, 51, 1215.5, 180, 0);
 
     private static String color(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
