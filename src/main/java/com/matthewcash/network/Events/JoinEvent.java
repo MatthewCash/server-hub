@@ -43,7 +43,7 @@ public class JoinEvent implements Listener {
 
         // Set Server Menu Item (Slot 4)
         ItemStack menuItem = createInventoryItem(Material.NETHER_STAR, "&b&lServer Menu",
-                "&eClick to open Server Menu");
+            "&eClick to open Server Menu");
         player.getInventory().setItem(4, menuItem);
 
         // Set Leave Item (Slot 8)
