@@ -1,16 +1,16 @@
 package com.matthewcash.network;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.messaging.PluginMessageListener;
-
 import com.matthewcash.network.Events.CancelEvents;
 import com.matthewcash.network.Events.ItemInteractEvent;
 import com.matthewcash.network.Events.JoinEvent;
 import com.matthewcash.network.Events.JoinLeaveEvents;
 import com.matthewcash.network.Events.KickEvents;
 import com.matthewcash.network.Events.NPCInteractEvent;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 
 public class ServerHub extends JavaPlugin implements PluginMessageListener {
     private static ServerHub plugin;
@@ -29,6 +29,7 @@ public class ServerHub extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new JoinLeaveEvents(), this);
         Bukkit.getPluginManager().registerEvents(new NPCInteractEvent(), this);
         Bukkit.getPluginManager().registerEvents(new KickEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new WorldGeneration(), this);
 
         Bukkit.getPluginCommand("website").setExecutor(new HubCommands());
         Bukkit.getPluginCommand("menu").setExecutor(new HubCommands());
