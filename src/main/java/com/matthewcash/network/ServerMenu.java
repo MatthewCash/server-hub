@@ -22,16 +22,35 @@ public class ServerMenu implements Listener {
     }
 
     public static void showMenu(Player player) {
-        Inventory inventory = Bukkit.createInventory(null, 27, color("&c&lServer Menu"));
+        Inventory inventory = Bukkit
+            .createInventory(null, 27, color("&c&lServer Menu"));
 
-        inventory.setItem(11, createInventoryItem(Material.SAPLING, "&c&lSkyFactory", "&eClick to Join!", true));
-        inventory.setItem(13, createInventoryItem(Material.IRON_SWORD, "&a&lSurvival", "&eClick to Join!", true));
-        inventory.setItem(15, createInventoryItem(Material.DIAMOND_PICKAXE, "&b&lCreative", "&eClick to Join!", true));
+        inventory.setItem(
+            11,
+            createInventoryItem(
+                Material.SAPLING, "&c&lSkyFactory", "&eClick to Join!", true
+            )
+        );
+        inventory.setItem(
+            13,
+            createInventoryItem(
+                Material.IRON_SWORD, "&a&lSurvival", "&eClick to Join!", true
+            )
+        );
+        inventory.setItem(
+            15,
+            createInventoryItem(
+                Material.DIAMOND_PICKAXE, "&b&lCreative", "&eClick to Join!",
+                true
+            )
+        );
 
         player.openInventory(inventory);
     }
 
-    private static ItemStack createInventoryItem(Material itemType, String name, String lore, Boolean glowing) {
+    private static ItemStack createInventoryItem(
+        Material itemType, String name, String lore, Boolean glowing
+    ) {
         ItemStack itemStack = new ItemStack(itemType);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(color(name));

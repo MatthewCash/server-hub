@@ -9,6 +9,8 @@ public class WebsiteMessage {
     }
 
     public static void showMessage(Player player) {
-        player.sendMessage(color("\n&e&lVisit my Website\n &7> &fmatthew-cash.com\n"));
+        player.sendMessage(
+            color("\n&e&lVisit my Website\n &7> &fmatthew-cash.com\n")
+        );
     }
 }

@@ -16,7 +16,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class JoinEvent implements Listener {
-    public final static Location spawn = new Location(Bukkit.getWorld("hub"), -1618.5, 51, 1215.5, 180, 0);
+    public final static Location spawn = new Location(
+        Bukkit.getWorld("hub"), -1618.5, 51, 1215.5, 180, 0
+    );
 
     private static String color(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
@@ -38,21 +40,29 @@ public class JoinEvent implements Listener {
         player.getInventory().setHeldItemSlot(4);
 
         // Set Website Item (Slot 0)
-        ItemStack websiteItem = createInventoryItem(Material.PAPER, "&a&lWebsite", "&eClick to open Website");
+        ItemStack websiteItem = createInventoryItem(
+            Material.PAPER, "&a&lWebsite", "&eClick to open Website"
+        );
         player.getInventory().setItem(0, websiteItem);
 
         // Set Server Menu Item (Slot 4)
-        ItemStack menuItem = createInventoryItem(Material.NETHER_STAR, "&b&lServer Menu",
-            "&eClick to open Server Menu");
+        ItemStack menuItem = createInventoryItem(
+            Material.NETHER_STAR, "&b&lServer Menu",
+            "&eClick to open Server Menu"
+        );
         player.getInventory().setItem(4, menuItem);
 
         // Set Leave Item (Slot 8)
-        ItemStack leaveItem = createInventoryItem(Material.BED, "&c&lLeave", "&eClick to Leave");
+        ItemStack leaveItem = createInventoryItem(
+            Material.BED, "&c&lLeave", "&eClick to Leave"
+        );
         player.getInventory().setItem(8, leaveItem);
 
     }
 
-    private static ItemStack createInventoryItem(Material itemType, String name, String lore) {
+    private static ItemStack createInventoryItem(
+        Material itemType, String name, String lore
+    ) {
         ItemStack itemStack = new ItemStack(itemType);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(color(name));

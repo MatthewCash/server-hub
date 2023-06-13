@@ -10,6 +10,8 @@ public class BungeeMessenger {
         ByteArrayDataOutput data = ByteStreams.newDataOutput();
         data.writeUTF("Connect");
         data.writeUTF(server);
-        player.sendPluginMessage(ServerHub.getPlugin(), "BungeeCord", data.toByteArray());
+        player.sendPluginMessage(
+            ServerHub.getPlugin(), "BungeeCord", data.toByteArray()
+        );
     }
 }

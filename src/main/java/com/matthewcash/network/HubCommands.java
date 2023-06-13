@@ -7,7 +7,9 @@ import org.bukkit.entity.Player;
 
 public class HubCommands implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(
+        CommandSender sender, Command command, String label, String[] args
+    ) {
         Player player = (Player) sender;
 
         switch (command.getName().toLowerCase()) {

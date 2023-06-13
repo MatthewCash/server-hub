@@ -36,7 +36,8 @@ public class ServerHub extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginCommand("menu").setExecutor(new HubCommands());
         Bukkit.getPluginCommand("leave").setExecutor(new HubCommands());
 
-        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        this.getServer().getMessenger()
+            .registerOutgoingPluginChannel(this, "BungeeCord");
 
         getLogger().info("Enabled ServerHub!");
     }
@@ -47,7 +48,9 @@ public class ServerHub extends JavaPlugin implements PluginMessageListener {
     }
 
     @Override
-    public void onPluginMessageReceived(String channel, Player player, byte[] message) {
+    public void onPluginMessageReceived(
+        String channel, Player player, byte[] message
+    ) {
         // No messages are expected to be received
     }
 }
