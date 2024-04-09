@@ -12,7 +12,6 @@ import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
 
 public class NPCInteractEvent implements Listener {
-
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onNPCLeftClick(NPCLeftClickEvent event) {
         Player player = event.getClicker();

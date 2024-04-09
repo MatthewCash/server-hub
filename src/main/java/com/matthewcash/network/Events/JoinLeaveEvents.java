@@ -7,7 +7,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class JoinLeaveEvents implements Listener {
-
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
         event.setJoinMessage("");
@@ -17,5 +16,4 @@ public class JoinLeaveEvents implements Listener {
     public void onQuit(PlayerQuitEvent event) {
         event.setQuitMessage("");
     }
-
 }
