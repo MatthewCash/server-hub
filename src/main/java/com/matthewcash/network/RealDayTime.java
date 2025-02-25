@@ -1,20 +1,36 @@
 package com.matthewcash.network;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 
 import org.bukkit.plugin.Plugin;
 
 public class RealDayTime {
+    public static double latitudeDeg;
+    public static double longitudeDeg;
+
+    public static double sunriseHour;
+    public static double sunsetHour;
+
     public static void startTimer() {
         final Plugin plugin = ServerHub.getPlugin();
+
+        latitudeDeg = plugin.getConfig().getDouble("latitude");
+        longitudeDeg = plugin.getConfig().getDouble("longitude");
+
         plugin.getServer().getScheduler()
             .scheduleSyncRepeatingTask(
-                plugin, () -> updateTime(), 0, 1
+                plugin, () -> updateSunTimes(), 0, 3600 * 20
+            );
+
+        plugin.getServer().getScheduler()
+            .scheduleSyncRepeatingTask(
+                plugin, () -> updateTime(), 1, 1
             );
     }
 
-    private static void updateTime() {
+    private static void updateSunTimes() {
         // Approximate solar declination in degrees
         final double declRad = Math.toRadians(
             23.44 * Math.sin(
@@ -25,7 +41,8 @@ public class RealDayTime {
             )
         );
 
-        final double latRad = Math.toRadians(46.5);
+        final double latRad = Math
+            .toRadians(latitudeDeg);
 
         // Calculate the hour angle H at sunrise/sunset
         final double cosH = Math
@@ -35,20 +52,33 @@ public class RealDayTime {
         final double Hdeg = Math.toDegrees(Math.acos(cosH));
         final double deltaHours = Hdeg / 15.0;
 
-        final double sunriseTime = 12 - deltaHours;
-        final double sunsetTime = 12 + deltaHours;
+        sunriseHour = 12 - deltaHours;
+        sunsetHour = 12 + deltaHours;
+    }
 
-        final LocalTime now = LocalTime.now();
-        final double hourFraction = now.getHour()
-            + now.getMinute() / 60.0
-            + now.getSecond() / 3600.0;
+    private static void updateTime() {
 
-        final double dayPercent = (hourFraction - sunriseTime)
-            / (sunsetTime - sunriseTime);
+        final double solarHour = getSolarHour(
+            ServerHub.getPlugin().getConfig().getDouble("longitude")
+        );
+
+        final double dayPercent = (solarHour - sunriseHour)
+            / (sunsetHour - sunriseHour);
 
         final long ticks = (long) (dayPercent * 12000);
 
         ServerHub.getPlugin().getServer().getWorlds().getFirst()
             .setTime(ticks);
+    }
+
+    public static double getSolarHour(double longitudeDeg) {
+        ZonedDateTime nowUTC = ZonedDateTime.now(ZoneOffset.UTC);
+
+        double utcHour = nowUTC.getHour() + nowUTC.getMinute() / 60.0
+            + nowUTC.getSecond() / 3600.0;
+
+        double solarHour = utcHour + longitudeDeg / 15.0;
+
+        return (solarHour % 24 + 24) % 24;
     }
 }

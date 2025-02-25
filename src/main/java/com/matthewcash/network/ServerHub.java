@@ -22,6 +22,9 @@ public class ServerHub extends JavaPlugin implements PluginMessageListener {
     @Override
     public void onEnable() {
         plugin = this;
+
+        saveResource("config.yml", false);
+
         Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
         Bukkit.getPluginManager().registerEvents(new ItemInteractEvent(), this);
         Bukkit.getPluginManager().registerEvents(new ServerMenu(), this);
