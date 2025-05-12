@@ -42,8 +42,6 @@ public class ServerHub extends JavaPlugin implements PluginMessageListener {
         this.getServer().getMessenger()
             .registerOutgoingPluginChannel(this, "BungeeCord");
 
-        RealDayTime.startTimer();
-
         getLogger().info("Enabled ServerHub!");
     }
 
