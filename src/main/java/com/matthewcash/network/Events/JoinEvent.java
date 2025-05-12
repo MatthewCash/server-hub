@@ -15,9 +15,18 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.matthewcash.network.ServerHub;
+
 public class JoinEvent implements Listener {
     public final static Location spawn = new Location(
-        Bukkit.getWorld("hub"), -1618.5, 51, 1215.5, 180, 0
+        Bukkit.getWorld(
+            ServerHub.getPlugin().getConfig().getString("spawn.world")
+        ),
+        ServerHub.getPlugin().getConfig().getDouble("spawn.x"),
+        ServerHub.getPlugin().getConfig().getDouble("spawn.y"),
+        ServerHub.getPlugin().getConfig().getDouble("spawn.z"),
+        (float) ServerHub.getPlugin().getConfig().getDouble("spawn.yaw"),
+        (float) ServerHub.getPlugin().getConfig().getDouble("spawn.pitch")
     );
 
     private static String color(String message) {
